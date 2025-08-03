@@ -1,5 +1,5 @@
 import React from 'react';
-import Cube from '../../assets/component/cube/Cube';
+import Cube from '../../component/cube/Cube';
 
 function Layout() {
   return (

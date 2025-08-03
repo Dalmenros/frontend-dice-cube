@@ -1,13 +1,12 @@
 import React from 'react';
 import Face from './Face';
 
-import Home from '../../../features/home/Home';
-import News from '../../../features/news/News';
-import Bio from '../../../features/bio/Bio';
-import Contact from '../../../features/contact/Contact';
-import Projects from '../../../features/projects/Projects';
-import About
- from '../../../features/about/about';
+import Home from '../../features/home/Home';
+import News from '../../features/news/News';
+import Bio from '../../features/bio/Bio';
+import Contact from '../../features/contact/Contact';
+import Projects from '../../features/projects/Projects';
+import About from '../../features/about/about';
 function Cube() {
   const sections = [
     {
