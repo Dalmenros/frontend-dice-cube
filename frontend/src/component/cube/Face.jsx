@@ -1,23 +1,30 @@
 import React from 'react';
 
+/**
+ * A single face of the 3D cube.
+ * Displays directional buttons to navigate to neighbor faces,
+ * and shows the face's content in the center.
+ */
 function Face({ face, neighbors = {}, labelMap = {}, children }) {
+  const directions = ['top', 'bottom', 'left', 'right'];
+
   return (
     <div className={`face ${face}`}>
-
       <div className="face-controls">
-        {/* Directional neighbor buttons */}
-        {Object.entries(neighbors).map(([position, target]) => (
-          <label
-            key={position}
-            htmlFor={target}
-            className={`btn small btn-${position}`}
-          >
-            {labelMap[target]}
-          </label>
-        ))}
-        {/* Current face label in center */}
+        {directions.map((dir) =>
+          neighbors[dir] ? (
+            <label
+              key={dir}
+              htmlFor={neighbors[dir]}
+              className={`btn small btn-${dir}`}
+            >
+              {labelMap[neighbors[dir]] ?? neighbors[dir]}
+            </label>
+          ) : null
+        )}
+
         <div className="faceContent current">
-                {children}
+          {children}
         </div>
       </div>
     </div>
