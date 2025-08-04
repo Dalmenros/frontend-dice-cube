@@ -14,12 +14,12 @@ function Layout() {
 
       <header>
         <div className="grid">
-          <label htmlFor="front" className="btn">Front</label>
-          <label htmlFor="back" className="btn">Back</label>
-          <label htmlFor="top" className="btn">Top</label>
-          <label htmlFor="bottom" className="btn">Bottom</label>
-          <label htmlFor="left" className="btn">Left</label>
-          <label htmlFor="right" className="btn">Right</label>
+          <label htmlFor="front" className="btn">Home</label>
+          <label htmlFor="back" className="btn">News</label>
+          <label htmlFor="top" className="btn">Bio</label>
+          <label htmlFor="bottom" className="btn">Contact</label>
+          <label htmlFor="left" className="btn">Projects</label>
+          <label htmlFor="right" className="btn">About</label>
         </div>
       </header>
 
