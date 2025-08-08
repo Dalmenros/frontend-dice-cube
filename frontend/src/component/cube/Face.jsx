@@ -9,22 +9,24 @@ function Face({ face, neighbors = {}, labelMap = {}, children }) {
   const directions = ['top', 'bottom', 'left', 'right'];
 
   return (
-    <div className={`face ${face}`}>
-      <div className="face-controls">
-        {directions.map((dir) =>
-          neighbors[dir] ? (
-            <label
-              key={dir}
-              htmlFor={neighbors[dir]}
-              className={`btn small btn-${dir}`}
-            >
-              {labelMap[neighbors[dir]] ?? neighbors[dir]}
-            </label>
-          ) : null
-        )}
+    <div className={`face-shadow ${face}`}>
+      <div className="face">
+        <div className="face-controls">
+          {directions.map((dir) =>
+            neighbors[dir] ? (
+              <label
+                key={dir}
+                htmlFor={neighbors[dir]}
+                className={`btn small btn-${dir}`}
+              >
+                {labelMap[neighbors[dir]] ?? neighbors[dir]}
+              </label>
+            ) : null
+          )}
 
-        <div className="faceContent current">
-          {children}
+          <div className="faceContent current">
+            {children}
+          </div>
         </div>
       </div>
     </div>

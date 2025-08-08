@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import Cube from '../../component/cube/Cube';
 
 import Home from '../home/Home';
@@ -9,6 +10,11 @@ import Projects from '../projects/Projects';
 import About from '../about/about';
 
 function Layout() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentFace, setCurrentFace] = useState('front');
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   const sections = [
     {
       face: 'front',
@@ -79,8 +85,7 @@ function Layout() {
   ];
 
   return (
-    <main>
-      {/* Radio inputs for each face */}
+    <div className="page">
       {sections.map(({ face }, index) => (
         <input
           key={face}
@@ -88,25 +93,42 @@ function Layout() {
           name="face"
           id={face}
           defaultChecked={index === 0}
+          onChange={() => setCurrentFace(face)}
         />
       ))}
 
-      {/* Navigation Buttons */}
       <header>
-        <fieldset className="grid" aria-label="Cube navigation">
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+
+        <div className={`nav-menu ${menuOpen ? 'open' : ''}`}>
           {sections.map(({ face, label }) => (
-            <label key={face} htmlFor={face} className="btn">
+            <label
+              key={face}
+              htmlFor={face}
+              className="btn"
+              onClick={() => {
+                if (face !== currentFace) {
+                  setCurrentFace(face);
+                }
+                setMenuOpen(false);
+              }}
+            >
               {label}
             </label>
           ))}
-        </fieldset>
+        </div>
       </header>
 
-      {/* Cube */}
       <div className="container">
         <Cube sections={sections} />
       </div>
-    </main>
+    </div>
   );
 }
 
